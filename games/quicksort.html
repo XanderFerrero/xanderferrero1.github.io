@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+                box-sizing:border-box;
+                overflow:hidden;
+            }
+
+            canvas{
+                height:100vh;
+                width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script>
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            let NOI = 100;
+            const border = 0
+
+            let items = [];
+            for(let i = 0; i < NOI; i++){
+                items[i] = i
+            }
+
+            async function render(iPtr = null, jPtr = null, pivot = null){
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                for(let i = 0; i < items.length; i++){
+                    
+                    if(iPtr === i){
+                        ctx.fillStyle = "cyan"
+                    }else if(jPtr === i){ 
+                        ctx.fillStyle = "red"
+                    }else if(pivot === items[i]){
+                        ctx.fillStyle = "lightgreen"
+                    }else{  
+                        ctx.fillStyle = "white";
+                    }
+
+                    
+                    ctx.fillRect(
+                        i * canvas.width/NOI + border,
+                        canvas.height - canvas.height/NOI * (items[i] + 1),
+                        canvas.width/NOI - border*2,
+                        canvas.height/NOI * (items[i] + 1)
+                        )    
+                }
+                ctx.fillStyle = "black"
+                await sleep(25);
+                
+            }
+
+            async function final(){
+                for(let i = 0; i < items.length; i++){
+                    await sleep(10)
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    for(let j=0;j<items.length;j++){
+                        ctx.fillStyle = "white"
+
+                        if(j <= i){
+                            ctx.fillStyle = "lightgreen"
+                        }
+
+                        ctx.fillRect(
+                            j * canvas.width/NOI + border,
+                            canvas.height - canvas.height/NOI * (items[j] + 1),
+                            canvas.width/NOI - border*2,
+                            canvas.height/NOI * (items[j] + 1)
+                        )
+                    }
+                    ctx.fillStyle = "black"
+                }
+            }
+
+            async function sleep(ms){
+                return new Promise((resolve) => {setTimeout(resolve, ms)})
+            }
+
+            async function swap(arr, pt1, pt2){
+                
+                let temp = arr[pt1];
+                arr[pt1] = arr[pt2];
+                arr[pt2] = temp;
+            }
+
+            async function partition(arr, start, end){
+                let pivot = arr[end];
+                let i = start - 1;
+                for(let j = start; j < end; j++){
+                    if(arr[j] < pivot){
+                        i++;
+                        await swap(arr, i, j, pivot);
+                    }
+                    await render(i, j, pivot);
+                }
+
+                i++;
+                await swap(arr, i, end);
+                await render();
+                return i;
+            }
+
+            async function quicksort(arr, start, end){
+                if(end <= start) return;
+                let pivot = await partition(arr, start, end);
+                await quicksort(arr, start, pivot - 1);
+                await quicksort(arr, pivot + 1, end);
+            }
+            
+            items.sort(() => Math.random() - 0.5);
+
+            async function main(){
+                await quicksort(items, 0, items.length - 1);
+                console.log(items)
+                await final();
+            }
+
+            main();
+            
+        </script>
+    </body>
+</html>

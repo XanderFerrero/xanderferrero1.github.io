@@ -1,0 +1,327 @@
+:root
+{
+    --c1:#98CD00;
+    --c2:#FFFADC;
+    --c3:#edf2f4;
+    --c4:#e07a5f;
+}
+
+html{
+    background-color:var(--c2);
+    color:black;
+}
+
+.footer{
+   background-color:var(--c1);
+}
+
+.footer p{
+    color:black;
+}
+
+
+.center{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+*{
+    color:var(--c3); 
+    /* border: 2px solid; */
+}
+
+html *
+{
+    box-sizing:border-box;
+}
+
+/* #navbar{
+    
+    background-color:var(--c1) ;
+} */
+
+
+
+
+#header{
+    background-color:var(--c2);
+}
+
+.regsec{
+    background-color:var(--c1);
+}
+
+section  .box
+{
+    padding:5em;        
+    background-color:#B6F500; 
+}
+
+
+
+#plang-container, #services-container, #es-container, #traits{
+    width:80%;
+    margin-bottom:2em;
+}
+
+
+.section{
+    border-radius:1em;
+}
+
+
+
+
+
+#plang-container .block .tag
+{
+    margin:0.3em;
+}
+
+
+section:not(.hero){
+    margin:1.2em;
+}
+
+.column > .notification, .cell > .card, .message > .container, .column .card, .column > .block
+{
+    height:100%;
+}
+
+
+
+.main-text-container{
+    float:left;
+}
+
+.main-image-container{
+    float:right;
+    
+}
+
+.box{
+    transition:0.2s;
+}
+
+.box:hover{
+}
+
+.tags{
+    transition:0.2s;
+}
+
+.tags:hover{
+    transform:scale(1.1);
+}
+
+
+
+.card .tag, .message .tag {
+    transition: 0.2s;
+    box-shadow:0 0px 8px 5px rgba(255,250,250,1);
+}
+
+.field .tags{
+    transition: 0.2s;
+}
+
+#plang-container .tag:hover{
+    transform: scale(1.1);
+}
+
+.message,.card,.notification{
+    transition: 0.2s;
+}
+
+.message:hover{
+    transform: scale(1.1);
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+.message:hover, .card:hover, .notification:hover{
+    box-shadow: 0 0 10px 10px rgb(255, 153, 0);
+}
+
+
+
+.notification{
+    transition:0.2s;
+}
+
+.notification:hover{
+    transform: scale(1.05);
+}
+
+@keyframes appear{
+    0%{
+        opacity:0%;
+        transform:translateY(-100px);
+    }
+    100%{
+        transform:translateY(0px);
+        opacity:1;
+        
+    }
+}
+
+
+.container{
+    margin:3em auto;
+}
+
+.animation-scrolldown{
+    animation-name:appear;
+    animation-duration:1s;
+    animation-play-state:paused;
+}
+
+#navbar{
+    position:fixed;
+    top:0;
+
+    width:100%;
+}
+
+#header{
+    margin-top:5em;
+    background-color:var(--c2);
+}
+
+@keyframes animate-to-right{
+    0%{
+        opacity:0;
+        transform: translateX(-50%);
+    }
+    100%
+    {
+        opacity:1
+    }
+}
+
+@keyframes animate-to-left{
+    0%{
+        opacity:0;
+        transform: translateX(50%);
+    }
+    100%
+    {
+        opacity:1
+    }
+}
+
+@keyframes animate-to-top
+{
+    0%{
+        opacity:0;
+        transform: translateY(300px);
+    }
+    100%
+    {
+        opacity:1
+    }
+}
+
+.animate-to-right{
+    animation-name:animate-to-right;
+    animation-delay:0.8s;
+    animation-duration:0.8s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+
+}
+
+.animate-to-left{
+    animation-name:animate-to-left;
+    animation-delay:0.8s;
+    animation-duration:0.8s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+
+.animate-to-top
+{
+    animation-name:animate-to-top;
+    animation-timing-function: ease-out;
+    animation-duration:0.8s;
+}
+
+.navbar-brand .navbar-item:nth-child(2){
+    animation-name:animate-to-right;
+    animation-duration:0.2s;
+    animation-delay:0.8s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+
+.navbar-brand .navbar-item:nth-child(1){
+    animation-name:animate-to-right;
+    animation-duration:0.2s;
+    animation-delay:1s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+
+.navbar-start > .navbar-item:nth-child(1){
+    animation-name:animate-to-left;
+    animation-duration:0.2s;
+    animation-delay:0.8s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+
+.navbar-start > .navbar-item:nth-child(2){
+    animation-name:animate-to-left;
+    animation-duration:0.2s;
+    animation-delay:1s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+
+.navbar-start > .navbar-item:nth-child(3){
+    animation-name:animate-to-left;
+    animation-duration:0.2s;
+    animation-delay:1.2s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+
+.navbar-start > .navbar-item:nth-child(4){
+    animation-name:animate-to-left;
+    animation-duration:0.2s;
+    animation-delay:1.4s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+
+.navbar-start > .navbar-item:nth-child(5){
+    animation-name:animate-to-left;
+    animation-duration:0.2s;
+    animation-delay:1.6s;
+    animation-fill-mode:backwards;
+    animation-timing-function: ease-out;
+}
+
+
+
+.card .message:hover{
+    transform:scale(1);
+    box-shadow: 0 0 10px 10px rgb(246, 255, 0);
+}
+
+.box,.section,.message,.notification,.navbar, .tag, figure img{
+    box-shadow:0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.card{
+    box-shadow:0 6px 20px 0px rgba(0, 0, 0, 0.5)
+}
+
+button{
+    position:relative;
+    z-index:10;
+}

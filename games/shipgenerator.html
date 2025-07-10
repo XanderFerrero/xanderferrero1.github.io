@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+      <style>
+        body{
+          font-family:'Times New Roman', Times, serif;
+          position:relative;
+          margin:0;
+          padding:0;
+          min-height: 100vh; }
+          
+
+        header{
+          text-align:center;
+          color:white;
+          padding:0.5em;
+          background-image: url(https://i.pinimg.com/564x/24/15/8f/24158fdd40e75e1d2be721b357fb08e7.jpg)
+        }
+
+        footer{
+          text-align:center;
+          padding:0.5em;
+          background-image: url(https://i.pinimg.com/564x/7f/f2/18/7ff218d00e9673ebd7037c83b3251183.jpg);
+          position:fixed;
+          bottom:0;
+          width:100%;
+        }
+
+        #container{
+          margin:1em;
+          text-align:center;
+        }
+
+        #people{
+          display:flex;
+          gap:10px;
+        }
+
+        #people div{
+          width: 100%;
+          text-align:center;
+          color: white;
+          background-image: linear-gradient(90deg, rgb(88,99,99), rgb(77,99,99));
+          padding: 1em;
+          font-size: 20px;
+          border-radius: 10px;
+        }
+
+
+        button{
+          border:none;
+          padding:0.5em;
+          font-size: 20px;
+          color:white;
+          background-color:black;
+          border-radius: 10px;
+          position:relative;
+        }
+
+        button::after{
+          position:absolute;
+          content:"";
+          height:3px;
+          width:0;
+          left:0;
+          bottom:10px; 
+          background-color:white;
+        }
+
+        button:hover{
+          opacity:70%;
+          transition: 0.5s;
+        }
+        
+        button:hover::after{
+          width:100%;
+          transition:0.2s;
+        }
+
+
+        p{
+           border: 2px solid;
+           /* width: 50%; */
+           padding:1em;
+           font-size:20px;
+           border-radius: 20px;
+        }
+      </style>
+    </head>
+    <body background="https://i.pinimg.com/564x/b9/98/60/b998603e68aa679c333433091adc040f.jpg">
+      <header>
+        <h1 style="color: aliceblue;">SHIP GENERATOR (ft. G9-MAGNESIUM)</h1>
+      </header>
+      <div id="container">
+        <div id="people">
+          <div id="target1">
+            PERSON 1
+          </div>
+          <div id="target2">
+            PERSON 2
+          </div>
+        </div>
+        <b>
+        <button id="btn" style="font-family: 'Times New Roman', Times, serif;">Generate</button>
+        </b>
+      </div>
+      <footer>
+        <h3 style="color: aliceblue;">Made by: GENGGENGS</h3>
+      </footer>
+      <br>
+        <script>
+            const btn = document.getElementById("btn");
+            const target1 = document.getElementById("target1");
+            const target2 = document.getElementById("target2");
+
+            async function quicksort(arr, start, end, el){
+              if (end <= start) return;
+              const pivot = await partition(arr, start, end, el);
+              await quicksort(arr, start, pivot - 1, el);
+              await quicksort(arr, pivot + 1, end, el);
+            }
+
+            async function sleep(ms){
+              return new Promise(resolve => setTimeout(resolve, ms))
+            }
+
+            async function swap(arr, ptr1, ptr2,el){
+              let temp = arr[ptr1];
+              arr[ptr1] = arr[ptr2];
+              arr[ptr2] =  temp;
+              el.textContent = await formatStr(arr)
+              await sleep(50)
+            }
+
+            async function formatStr(arr){
+              return arr.map(i => i.val).join("")
+            }
+
+            async function partition(arr, start, end, el){
+              let i = start - 1;
+              let pivot = arr[end];
+              for(let j = start; j < end; j++){
+                if(arr[j].pos < pivot.pos){
+                  console.log("EYY")
+                  i++;
+                  await swap(arr, i, j, el);
+                }
+              }
+
+              i++;
+              await swap(arr, i, end, el);
+              return i;
+            }
+
+            const boys = [
+              // "aguilar",
+              "anorico",
+              "borra",
+              // "ferrero",
+              "gaje",
+              "gallon",
+              "grande",
+              "malan",
+              "miraflor",
+              "ong",
+              "pineda",
+              "rojo",
+              "sangilan",
+              "silan",
+              "tseng",
+              "valencia",
+            ]
+
+            const girls = [
+              "armentia",
+              "balogo",
+              "buni",
+              "castisimo",
+              "diente",
+              "doriego",
+              // "galvez",
+              "gonzaga",
+              "ilustre",
+              "jadia",
+              "oliveros",
+              "petinglay",
+              "polines",
+              "tonding",
+              "villavert",
+            ]
+
+          const _class = [
+            "armentia",
+            "balogo",
+            "buni",
+            "castisimo",
+            "diente",
+            "doriego",
+            "galvez",
+            "gonzaga",
+            "ilustre",
+            "jadia",
+            "oliveros",
+            "petinglay",
+            "polines",
+            "tonding",
+            "villavert",
+            // "aguilar",
+            "anorico",
+            "borra",
+            // "ferrero",
+            "gaje",
+            "gallon",
+            "grande",
+            "malan",
+            "miraflor",
+            "ong",
+            "pineda",
+            "rojo",
+            "sangilan",
+            "silan",
+            "tseng",
+            "valencia",
+          ]
+
+            btn.onclick = () => {
+              const [out1, out2] = [_class[Math.floor(Math.random() * _class.length)], _class[Math.floor(Math.random() * _class.length)]];
+              let [eff1, eff2] = [[],[]];
+              for(let i = 0; i < out1.length; i++){
+                eff1[i] = {val: out1[i], pos: i}
+              }
+              for(let i = 0; i < out2.length; i++){
+                eff2[i] = {val: out2[i], pos: i}
+              }
+
+              eff1.sort(() => Math.random() - 0.5)
+              eff2.sort(() => Math.random() - 0.5)
+              console.log(eff1)
+              quicksort(eff1, 0, eff1.length - 1, target1)
+              quicksort(eff2, 0, eff2.length - 1, target2)
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,29 @@
+body{
+    background-color: lavender;
+    font-family: Verdana;
+    font-size:20px;
+}
+
+#submit{
+    width: 100px;
+    height:40px;
+    color:white;
+    background-color: black;
+    margin-left:30px;
+}
+
+#submit:hover{
+    opacity:80%;
+}
+
+#secone{
+    float:left;
+    width:20%;
+}
+
+#sectwo{
+    float:left;
+    position:relative;
+    left:-10px;
+}
+

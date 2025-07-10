@@ -1,0 +1,53 @@
+*{
+    font-family:Jetbrains Mono;
+}
+
+body{
+    background-color:wheat;
+}
+
+#container{
+    border: black solid;
+    display:grid;
+    background-color:gray;
+    justify-content:center;
+    width:fit-content;
+    margin:auto;
+    padding:30px;
+    border-radius:40px;
+    grid-template-columns:repeat(4,3em);
+    grid-auto-rows: 3em;
+    gap:10px;
+}
+
+#container button{
+    font-size:20px;
+    border-radius:50%;
+    background-color:black;
+    color:white;
+}
+
+#container button:hover{
+    animation:btnhover 0.25s 1 running forwards;
+}
+
+#target{
+    background-color:white;
+    grid-column: span 4;
+    text-align:right;
+    font-size:25px;
+}
+
+#container button:active{
+    background-color:red;
+}
+
+
+h1{
+    text-align:center;
+}
+
+@keyframes btnhover{
+    from{opacity:100%}
+    to{opacity:60%}
+}

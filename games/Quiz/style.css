@@ -1,0 +1,79 @@
+body{
+    text-align:center;
+}
+:root{
+    --correct: green;
+    --wrong:red;
+    --neutral:gray;
+    --clicked:gold;
+    --not-clicked:black;
+}
+
+.option{
+    --click: var(--not-clicked);
+    --bg: var(--neutral);
+    background-color: var(--bg);
+    border: 2px var(--click) solid;
+    color: var(--click);
+}
+
+.option.correct{
+    --bg: var(--correct);
+}
+
+.option.wrong{
+    --bg: var(--wrong)
+}
+
+.option:hover{
+    opacity: 80%;
+}
+
+.option.clicked{
+    --click: var(--clicked);
+}
+
+.option.not-clicked{
+    --click: var(--not-clicked);
+}
+
+#container{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap:10px;
+    padding:10px
+}
+
+#qContainer{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    border: 1px black solid;
+    text-align:center;
+    width: 500px;
+    height:200px;
+    border-radius: 15px;
+    background-color:#bdbdbd
+    ;
+}
+
+#oContainer{
+    display:flex;
+  	justify-content: space-evenly;    
+}   
+
+#oContainer button{
+    width:100px;
+    height:30px;
+}
+
+#submit{
+    margin:20px;
+    width:100px;
+    height:30px;
+}
+
+#result{
+    display:none    ;
+}
