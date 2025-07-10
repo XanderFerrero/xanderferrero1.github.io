@@ -1,0 +1,19 @@
+body{
+    background:gray;
+    font-family: "JetBrains Mono";
+    display:flex;
+    justify-content: center;
+    overflow: hidden;
+    padding:0;
+    margin:0;
+}
+
+canvas{
+    background-color:white;
+    display:block;
+}
+
+#game{
+    text-align:center;
+}
+

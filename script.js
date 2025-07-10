@@ -20,19 +20,19 @@ function configureStyles(){
 
 const form = document.getElementById("contact-form")
 
-// form.onsubmit = (e) => {
-//     e.preventDefault();
-//     const name = document.getElementById("contact-name");
-//     const email = document.getElementById("contact-email");
-//     const msg = document.getElementById("contact-message");
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const name = document.getElementById("contact-name");
+    const email = document.getElementById("contact-email");
+    const msg = document.getElementById("contact-message");
 
-//     if(name.value && email.value && msg.value)
-//     {
-//         alert("SUBMITTED")
-//     }else{
-//         alert("Please enter all fields")
-//     }
-// }
+    if(name.value && email.value && msg.value)
+    {
+        alert("SUBMITTED")
+    }else{
+        alert("Please enter all fields")
+    }
+}
 
 let targetString =".section,.container,.title:not(#hero-title),.card,.message, input, textarea, button, .tag, label,.notification, p:not(#navbar-title), .footer, .block:not(.non-animate-block)"; 
 
